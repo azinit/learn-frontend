@@ -1,6 +1,13 @@
 # React Structure
+
+### Content
+- [Problem definition](#problem-definition)
+- [Principles of FDD](#principles-of-fdd)
+- [FAQ](#faq)
+
 > @LivingDoc
 
+## Problem definition
 There is a big problem to maintain and mutate long-living projects.
 
 - And it becomes more easy, if you choose **split your code-base by feature (FDD) instead of splitting by type.**
@@ -14,14 +21,13 @@ There is a big problem to maintain and mutate long-living projects.
 - And at last - every changing of feature will affect only one module, not all project. It also easire to navigate in one module, not all project.
 
 > [My selection of materials about FDD](https://www.notion.so/Feature-Driven-Development-dfe306d664ae4780bcf999ccdd15e532)
-
 ### Principles of FDD
 
 > I have [own conspect of base FDD principles with additional explaining](https://www.notion.so/Summary-YouTube-Feature-Driven-Arhitecture-b8609fd4452b41f499703c841e56b8e9)
 
 ![principles-img](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/74cf09b2-ad8b-4e7d-9ac6-c66e3096c0da/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20200801%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20200801T085646Z&X-Amz-Expires=86400&X-Amz-Signature=a6f3d0cf9bd82b781073947c4af095878f8dd6427cebdf46680b22982547953b&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
-### FAQ
+## FAQ
 
 #### What structure should looks like?
 
