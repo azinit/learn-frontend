@@ -1,11 +1,15 @@
 # React Structure
+> @LivingDoc
 
 ### Content
 - [Problem definition](#problem-definition)
 - [Principles of FDD](#principles-of-fdd)
 - [FAQ](#faq)
+    - [What structure should looks like?](#what-structure-should-looks-like)
+    - [What is a `feature`?](#what-is-a-feature)
+    - [Where should I locate api modules?](#where-should-i-locate-api-modules)    
 
-> @LivingDoc
+---
 
 ## Problem definition
 There is a big problem to maintain and mutate long-living projects.
