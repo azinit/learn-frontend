@@ -11,6 +11,8 @@ There is a big problem to maintain and mutate long-living projects.
 
 - Also, in first case, your modules are very interconnected - what has a bad affecting your codebase.
 
+- And at last - every changing of feature will affect only one module, not all project. It also easire to navigate in one module, not all project.
+
 > [My selection of materials about FDD](https://www.notion.so/Feature-Driven-Development-dfe306d664ae4780bcf999ccdd15e532)
 
 ### Principles of FDD
