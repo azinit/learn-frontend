@@ -6,6 +6,7 @@
     flex-direction: column;
     background-color: var(--clr-background);
     color: var(--clr-text);
+    transition: 0.5s;
 
     &-header {
         height: 30px;
