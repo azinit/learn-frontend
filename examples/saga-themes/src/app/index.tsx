@@ -1,5 +1,6 @@
 import React from 'react'
 import Routing from "pages"
+import { Navbar } from "features/navbar"
 import { BrowserRouter } from "react-router-dom";
 import "./index.scss";
 
@@ -8,7 +9,7 @@ const App = () => {
         <BrowserRouter>
             <div className="app">
                 <header className="app-header">
-                    <Routing.Navbar />
+                    <Navbar />
                 </header>
                 <main className="app-main">
                     <Routing />

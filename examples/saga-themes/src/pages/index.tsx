@@ -14,14 +14,4 @@ const Routing = () => (
     </Suspense>
 )
 
-// TODO: decompose
-const Navbar = () => (
-    <div className="navbar">
-        <NavLink exact to="/">root</NavLink>
-        <NavLink exact to="/details">details</NavLink>
-    </div>
-)
-
-Routing.Navbar= Navbar;
-
 export default Routing
