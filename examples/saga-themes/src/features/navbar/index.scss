@@ -1,4 +1,8 @@
 .navbar {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--clr-foreground);
+
     a {
         text-decoration: none;
         color: var(--clr-text);
@@ -11,6 +15,28 @@
         }
         &.active {
             color: var(--clr-primary);
+        }
+    }
+
+    &__switcher {
+        height: 30px;
+        width: 30px;
+        &::before {
+            font-size: 20px;
+            line-height: 100%;
+            transition: 0.25s;
+        }
+        &:hover::before {
+            opacity: 0.7;
+        }
+        &:active::before {
+            opacity: 0.5;
+        }
+        &.light::before {
+            content: "🌝";
+        }
+        &.dark::before {
+            content: "🌚";
         }
     }
 }

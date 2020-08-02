@@ -1,13 +1,15 @@
 import React from 'react'
-import Routing from "pages"
-import { Navbar } from "features/navbar"
 import { BrowserRouter } from "react-router-dom";
+import Routing from "pages"
+import { ThemeProvider } from "features/theme-provider";
+import { Navbar } from "features/navbar"
 import "./index.scss";
 
 const App = () => {
+
     return (
         <BrowserRouter>
-            <div className="app">
+            <ThemeProvider className="app">
                 <header className="app-header">
                     <Navbar />
                 </header>
@@ -15,7 +17,7 @@ const App = () => {
                     <Routing />
                 </main>
                 <footer className="app-footer" />
-            </div>
+            </ThemeProvider>
         </BrowserRouter>
     )
 }

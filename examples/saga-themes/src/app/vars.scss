@@ -1,5 +1,13 @@
-.app {
+.app.light {
     --clr-primary: #7e85e6;
-    --clr-background: #353535;
+    --clr-foreground: #fafafa;
+    --clr-background: #e9e9e9;
+    --clr-text: #000;
+}
+
+.app.dark {
+    --clr-primary: #7e85e6;
+    --clr-foreground: #4e4e4e;
+    --clr-background: #292929;
     --clr-text: #fff;
 }
