@@ -8,7 +8,8 @@ const { PI } = Math;
 const canv = getCanvas();
 const ctx = getContext();
 let isMouseDown = false;
-
+let strokeRadius = 10;
+ctx.lineWidth = strokeRadius;
 
 const clearCanvas = () => {
     ctx.fillStyle = "white";
@@ -28,13 +29,22 @@ canv.addEventListener("mousedown", () => {
 })
 canv.addEventListener("mouseup", () => {
     isMouseDown = false;
+    // Чтобы линию можно было сбрасывать при рисовании отдельных кусков
+    ctx.beginPath();
 })
+
 canv.addEventListener("mousemove", (event) => {
     if (isMouseDown) {
-        const { offsetX, offsetY } = event;
-        ctx.fillStyle = randomColor();
+        const { offsetX: x, offsetY: y } = event;
+        // Рисуем линию с предыдущей позиции до текущей
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        // Рисуем на конце линий круги, чтобы не было острых перегибов при больших радиусах
         ctx.beginPath();
-        ctx.arc(offsetX, offsetY, 5, 0, PI * 2);
+        ctx.arc(x, y, strokeRadius / 2, 0, PI * 2);
         ctx.fill();
+        // Переходим в текущую позицию
+        ctx.beginPath();
+        ctx.moveTo(x, y);
     }
 })
