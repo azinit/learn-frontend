@@ -1,4 +1,4 @@
 import "./init";
-import "./examples/snake";
+import "./examples/konvajs";
 import "./index.scss";
 import "./types";
