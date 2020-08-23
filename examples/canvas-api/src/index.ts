@@ -1,4 +1,3 @@
 import "./init";
-import "./examples/get-started";
-// import "./canvas/animations";
+import "./examples/drawer";
 import "./index.scss";
