@@ -1,6 +1,6 @@
 const canvas = document.createElement("canvas");
-canvas.width = 800;
-canvas.height = 800;
+canvas.width = 608;
+canvas.height = 608;
 document.body.appendChild(canvas);
 
 export const getCanvas = () => canvas;

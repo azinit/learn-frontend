@@ -1,3 +1,4 @@
 import "./init";
-import "./examples/drawer";
+import "./examples/snake";
 import "./index.scss";
+import "./types";

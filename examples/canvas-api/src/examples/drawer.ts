@@ -1,7 +1,7 @@
 import { getContext, getCanvas } from "../canvas";
-import { enums } from "../consts";
+import { enums, randomColor } from "../consts";
 
-const { keyboard } = enums;
+const { KEYBOARD } = enums;
 const { PI } = Math;
 
 // https://www.youtube.com/watch?v=XYgcNVwHUdg&t=1712s
@@ -13,14 +13,6 @@ let isMouseDown = false;
 let strokeRadius = 10;
 let history: Array<any> = [];
 ctx.lineWidth = strokeRadius;
-
-const randomInt = (min = 0, max = 1) => {
-    return Math.floor(Math.random() * (max - min) + min);
-}
-
-const randomColor = () => {
-    return `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
-}
 
 // Mousedown, mouseup - для вычисления состояния - нажата или не нажата кнопка мыши
 canv.addEventListener("mousedown", () => {
@@ -60,15 +52,15 @@ const render = (x: number, y: number) => {
 document.addEventListener('keydown', (event) => {
     const { keyCode } = event;
     switch (keyCode) {
-        case keyboard.KEY_S:
+        case KEYBOARD.KEY_S:
             save();
             break;
-        case keyboard.KEY_R:
+        case KEYBOARD.KEY_R:
             history = JSON.parse(localStorage.getItem('drawer-history'));
             clear();
             replay();
             break;
-        case keyboard.KEY_C:
+        case KEYBOARD.KEY_C:
             history = [];
             localStorage.setItem('drawer-history', JSON.stringify(history));
             clear()

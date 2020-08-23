@@ -7,4 +7,5 @@ body {
 canvas {
     display: block;
     border: 1px solid #000;
+    filter: hue-rotate(var(--hue));
 }

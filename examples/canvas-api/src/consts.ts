@@ -1,5 +1,13 @@
+export const randomInt = (min = 0, max = 1) => {
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+export const randomColor = () => {
+    return `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
+}
+
 const enums = {
-    keyboard: {
+    KEYBOARD: {
         BACKSPACE: 8,
         TAB: 9,
         ENTER: 13,
