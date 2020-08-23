@@ -11,7 +11,7 @@ const canv = getCanvas();
 const ctx = getContext();
 let isMouseDown = false;
 let strokeRadius = 10;
-let history: Array<[number, number]> = [];
+let history: Array<any> = [];
 ctx.lineWidth = strokeRadius;
 
 const randomInt = (min = 0, max = 1) => {
@@ -25,11 +25,13 @@ const randomColor = () => {
 // Mousedown, mouseup - для вычисления состояния - нажата или не нажата кнопка мыши
 canv.addEventListener("mousedown", () => {
     isMouseDown = true;
+    history.push("mousedown");
 })
 canv.addEventListener("mouseup", () => {
     isMouseDown = false;
     // Чтобы линию можно было сбрасывать при рисовании отдельных кусков
     ctx.beginPath();
+    history.push("mouseup");
 })
 // Основной цикл отрисовки 
 canv.addEventListener("mousemove", (event) => {
@@ -67,6 +69,8 @@ document.addEventListener('keydown', (event) => {
             replay();
             break;
         case keyboard.KEY_C:
+            history = [];
+            localStorage.setItem('drawer-history', JSON.stringify(history));
             clear()
             break;
     }
@@ -89,6 +93,7 @@ const save = () => {
 /** Воспроизведение рисования */
 const replay = () => {
     let index = 0;
+    let isMouseDown = false;
     const interval = setInterval(() => {
         // Останавливаем воспроизведение
         if (index === history.length) {
@@ -97,8 +102,20 @@ const replay = () => {
             return;
         }
         // Воспроизводим шаг
-        const [x, y] = history[index];
-        render(x, y);
+        const step = history[index];
+        switch (step) {
+            case "mouseup":
+                isMouseDown = false;
+                ctx.beginPath();
+                break;
+            case "mousedown":
+                isMouseDown = true;
+                break;
+            default:
+                const [x, y] = step as [number, number];
+                render(x, y);
+
+        }
         index++;
     }, 10);
 }
