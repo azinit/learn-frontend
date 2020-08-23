@@ -1,5 +1,6 @@
-import { getCanvas } from "../canvas";
-const ctx = getCanvas().getContext("2d");
+import { getContext } from "../canvas";
+
+const ctx = getContext();
 
 let sun = new Image();
 let moon = new Image();

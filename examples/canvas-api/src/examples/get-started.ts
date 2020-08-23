@@ -1,6 +1,6 @@
-import { getCanvas } from "../canvas";
+import { getContext } from "../canvas";
 
-const ctx = getCanvas().getContext("2d");
+const ctx = getContext();
 
 const renderSquads = () => {
     ctx.fillStyle = 'rgb(200, 0, 0)';
