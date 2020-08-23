@@ -56,5 +56,16 @@ const renderGradient = () => {
     }
 }
 
-renderGradient();
+const renderText = () => {
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2;
+    ctx.shadowBlur = 2;
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.5)';
+
+    ctx.font = '20px Times New Roman';
+    ctx.fillStyle = 'green';
+    ctx.fillText('Sample String', 5, 30);
+}
+
+renderText();
 document.body.appendChild(canvas);
