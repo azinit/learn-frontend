@@ -1,5 +1,6 @@
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
+import { getCanvas } from "../canvas";
+
+const ctx = getCanvas().getContext("2d");
 
 const renderSquads = () => {
     ctx.fillStyle = 'rgb(200, 0, 0)';
@@ -93,5 +94,4 @@ const canvasState = () => {
     ctx.fillRect(60, 60, 30, 30);   // Draw a rectangle with restored settings
 }
 
-canvasState();
-document.body.appendChild(canvas);
+renderGradient();
