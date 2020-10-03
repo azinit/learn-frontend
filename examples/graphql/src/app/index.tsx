@@ -1,4 +1,5 @@
 import React from 'react';
+import Routing from "pages";
 import './index.scss';
 
 const App = () => {
@@ -7,6 +8,7 @@ const App = () => {
       <header className="app-header">
         TODO App
       </header>
+      <Routing />
     </div>
   );
 }
