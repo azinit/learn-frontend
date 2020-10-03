@@ -1,0 +1,14 @@
+.task-item {
+    transition: 0.25s;
+
+    &.completed {
+        text-decoration: line-through;
+    }
+
+    &:hover {
+        background-color: var(--clr-foreground--hover);
+    }
+    &:active {
+        background-color: var(--clr-foreground--selected);
+    }
+}

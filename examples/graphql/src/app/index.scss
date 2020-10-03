@@ -1,10 +1,33 @@
+// vars
 .app {
-  &-header {
-    background-color: #282c34;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  --clr-foreground: #fff;
+  --clr-foreground--hover: #f6faff;
+  --clr-foreground--selected: #dfecff;
+}
+// normalize
+.app {
+  li {
+    list-style: none;
+  }
+}
+// app styles
+.app {
+  display: flex;
+  flex-direction: column;
+
+  .page {
+    margin: auto 10%;
+    &-title {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+    }
+  }
+}
+
+// common class-styles
+.app {
+  .text-white {
     color: white;
   }
 }
