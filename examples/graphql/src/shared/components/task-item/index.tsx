@@ -7,6 +7,7 @@ import "./index.scss";
 
 type Props = Task;
 
+// TODO: as feature
 const TaskItem = (props: Props) => {
     const { completed, title, userId, id } = props;
     const { data: author } = useFetch<User>(`users/${userId}`);

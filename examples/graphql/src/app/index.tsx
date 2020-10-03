@@ -12,7 +12,7 @@ const App = () => {
             Todo App
           </span>
         </Layout.Header>
-        <Layout.Content>
+        <Layout.Content className="app-content">
           <Routing />
         </Layout.Content>
       </Layout>

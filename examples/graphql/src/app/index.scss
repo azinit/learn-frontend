@@ -5,6 +5,14 @@
   --clr-foreground--selected: #dfecff;
 }
 // normalize
+html,
+body,
+#root,
+.app {
+  height: 100%;
+  position: relative;
+}
+
 .app {
   li {
     list-style: none;
@@ -14,14 +22,13 @@
 .app {
   display: flex;
   flex-direction: column;
-
-  .page {
+  &-content {
     margin: auto 10%;
-    &-title {
-      display: flex;
-      justify-content: center;
-      margin: 10px;
-    }
+    flex-grow: 1;
+  }
+
+  .ant-breadcrumb {
+    margin: 20px;
   }
 }
 
@@ -29,5 +36,8 @@
 .app {
   .text-white {
     color: white;
+  }
+  .text-muted {
+    color: gray;
   }
 }

@@ -1,0 +1,19 @@
+.task-card {
+    min-height: 80%;
+    height: inherit;
+
+    & > .ant-card-body {
+        display: flex;
+    }
+
+    &__details {
+        flex-grow: 1;
+        height: 100%;
+    }
+
+    &__sidebar {
+        border-left: 1px solid lightgray;
+        padding-left: 20px;
+        height: 100%;
+    }
+}
