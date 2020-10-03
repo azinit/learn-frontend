@@ -13,7 +13,7 @@ const TasksListTitle = () => (
 );
 
 const TasksList = () => {
-    const { data, error, loading } = useFetch<Task[]>("");
+    const { data, error, loading } = useFetch<Task[]>("todos");
 
     return (
         <div className="page page-tasks-list">

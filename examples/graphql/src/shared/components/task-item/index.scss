@@ -1,14 +1,23 @@
 .task-item {
-    transition: 0.25s;
+    & > div {
+        display: flex;
+    }
 
     &.completed {
-        text-decoration: line-through;
+        color: lightgrey;
     }
 
-    &:hover {
-        background-color: var(--clr-foreground--hover);
-    }
-    &:active {
-        background-color: var(--clr-foreground--selected);
+    &__title {
+        flex-grow: 1;
+        transition: 0.25s;
+        color: unset;
+
+        &:hover {
+            text-decoration: underline;
+            color: unset;
+        }
+        &:active {
+            color: rgba(cornflowerblue, 0.8);
+        }
     }
 }
