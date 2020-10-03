@@ -1,23 +1,13 @@
 import React from 'react'
-import { Breadcrumb, Spin, Alert } from "antd";
+import { Spin, Alert } from "antd";
 import { useFetch } from "shared/hooks";
 import { TaskItem } from "shared/components";
-
-// TODO: autogenerate by location
-const TasksListTitle = () => (
-    <Breadcrumb className="page-title">
-        <Breadcrumb.Item href="/">
-            TasksList
-        </Breadcrumb.Item>
-    </Breadcrumb>
-);
 
 const TasksList = () => {
     const { data, error, loading } = useFetch<Task[]>("todos");
 
     return (
         <div className="page page-tasks-list">
-            <TasksListTitle />
             <div className="page-content">
                 {error && (
                     <Alert
