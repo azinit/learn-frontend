@@ -1,5 +1,7 @@
 # Конфигурация для кодогенерации схемы и запросов GraphQL для TypeScript
 # @remark Конфигурацию объявляем глобально, т.к. плагины должны использоваться одинаково для нескольких файлов
+# FIXME: Добавить возможность сплитить модели внутри себя?
+# FIXME: remove (| null) ?
 schema: ${API_DOMAIN}
 documents: src/**/*.gql
 config:
@@ -16,7 +18,7 @@ config:
   # Типы генерируются на лету, без Pick - для чистоты информации по типу
   preResolveTypes: true
 generates:
-  src/types.ts:
+  src/models.ts:
     plugins:
       - add
       - typescript
@@ -25,7 +27,7 @@ generates:
     # Типы схемы и запросы - разделены
     presetConfig:
       extension: .gen.ts
-      baseTypesPath: types.ts
+      baseTypesPath: models.ts
     plugins:
       - add
       - typescript-operations
