@@ -1,23 +1,32 @@
-# FIXME: don't work globlally
-overwrite: true
-schema: https://graphqlzero.almansi.me/api
+# Конфигурация для кодогенерации схемы и запросов GraphQL для TypeScript
+# @remark Конфигурацию объявляем глобально, т.к. плагины должны использоваться одинаково для нескольких файлов
+schema: ${API_DOMAIN}
 documents: src/**/*.gql
+config:
+  # Сгенерированные файлы напрямую менять нельзя (!), только через обертки / доп. файлы
+  content: ${API_GENCOMMENT}
+  # Работа с запросами ведется через react-hooks
+  withHooks: true
+  # Из типов для схемы исключается служебное поле __typename
+  skipTypename: true
+  # Все типы из схемы и запросов - иммутабельны
+  immutableTypes: true
+  # @experimental Опциональность полей - пока что отключена
+  avoidOptionals: true
+  # Типы генерируются на лету, без Pick - для чистоты информации по типу
+  preResolveTypes: true
 generates:
   src/types.ts:
-    - typescript
+    plugins:
+      - add
+      - typescript
   src/:
     preset: near-operation-file
+    # Типы схемы и запросы - разделены
     presetConfig:
       extension: .gen.ts
       baseTypesPath: types.ts
-    config:
-      skipTypename: true
-      withHooks: true
-      immutableTypes: true
-      avoidOptionals: true
-      # Чтобы работал intelissense
-      preResolveTypes: true
-      # onlyOperationTypes: true
     plugins:
+      - add
       - typescript-operations
       - typescript-react-apollo
