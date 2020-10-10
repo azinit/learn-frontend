@@ -1,24 +1,19 @@
 import React, { useEffect } from 'react'
-import { useQuery } from '@apollo/client';
-import { loader } from "graphql.macro";
 import { Spin, Alert } from "antd";
 import { useFetch } from "shared/hooks";
 import { TaskItem } from "shared/components";
-
-const QUERY = loader("./query.gql");
+import { useGetTodosListQuery } from "gen/graphql";
 
 const TasksList = () => {
     const { data, error, loading } = useFetch<Task[]>("todos");
-    const { data: query } = useQuery(QUERY);
+    const { data: query } = useGetTodosListQuery();
 
     useEffect(() => {
-        // console.log("#", query.data);
         if (query) {
-            // @ts-ignore
-            console.table(query.todos.data.map(({ __typename, ...details }) => ({
-                id: details.id,
-                title: details.title,
-                user: details.user.name,
+            console.table(query.todos?.data?.map((todo) => ({
+                id: todo?.id,
+                title: todo?.title,
+                user: todo?.user?.name,
             })));
         }
     }, [query]);
