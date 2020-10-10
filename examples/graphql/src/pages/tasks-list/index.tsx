@@ -9,13 +9,13 @@ const QUERY = loader("./query.gql");
 
 const TasksList = () => {
     const { data, error, loading } = useFetch<Task[]>("todos");
-    const query = useQuery(QUERY);
+    const { data: query } = useQuery(QUERY);
 
     useEffect(() => {
         // console.log("#", query.data);
-        if (query.data) {
+        if (query) {
             // @ts-ignore
-            console.table(query.data.todos.data.map(({ __typename, ...details }) => ({
+            console.table(query.todos.data.map(({ __typename, ...details }) => ({
                 id: details.id,
                 title: details.title,
                 user: details.user.name,
