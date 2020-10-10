@@ -1,6 +1,6 @@
 overwrite: true
-schema: 'https://graphqlzero.almansi.me/api'
-documents: 'src/**/*.gql'
+schema: https://graphqlzero.almansi.me/api
+documents: src/**/*.gql
 generates:
   src/gen/graphql.tsx:
     config:
@@ -14,6 +14,6 @@ generates:
       preResolveTypes: true
       # onlyOperationTypes: true
     plugins:
-      - 'typescript'
-      - 'typescript-operations'
-      - 'typescript-react-apollo'
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
