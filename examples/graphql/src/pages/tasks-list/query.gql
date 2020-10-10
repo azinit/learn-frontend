@@ -1,9 +1,10 @@
-query getTodosList {
+query Todos {
   todos {
     data {
       id
       title
       user {
+        id
         name
       }
     }

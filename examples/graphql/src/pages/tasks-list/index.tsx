@@ -1,30 +1,28 @@
-import React, { useEffect } from 'react'
-import { Spin, Alert } from "antd";
-import { useFetch } from "shared/hooks";
+import React from 'react'
+import { Spin, Alert, Button } from "antd";
 import { TaskItem } from "shared/components";
-import { useGetTodosListQuery } from "./query.gen";
-
-type Foo = import("types").Album;
+import { useTodosQuery } from "./query.gen";
 
 const TasksList = () => {
-    const { data, error, loading } = useFetch<Task[]>("todos");
-    const { data: query } = useGetTodosListQuery();
-
-    useEffect(() => {
-        if (query) {
-            console.table(query.todos?.data?.map((todo) => ({
-                id: todo?.id,
-                title: todo?.title,
-                user: todo?.user?.name,
-            })));
-            const todo = query.todos?.data?.[0];
-            console.log(todo);
-        }
-    }, [query]);
+    const { data, error, loading, refetch } = useTodosQuery({
+        // Чтобы при рефетчинге менялся loading статус
+        notifyOnNetworkStatusChange: true,
+    });
+    const query = data?.todos?.data;
 
     return (
-        <div className="page page-tasks-list">
+        <div className="page tasks-list">
             <div className="page-content">
+                <div className="tasks-list__toolbar text-center">
+                    <Button
+                        className="btn-refetch"
+                        onClick={() => refetch()}
+                        disabled={loading}
+                        title="Refresh list of tasks"
+                    >
+                        Refresh
+                    </Button>
+                </div>
                 {error && (
                     <Alert
                         type="error"
@@ -32,15 +30,18 @@ const TasksList = () => {
                         showIcon
                     />
                 )}
-                {loading && <Spin />}
-                <ul>
-                    {data?.map((taskProps) => (
-                        <li><TaskItem {...taskProps} /></li>
-                    ))}
-                    {data?.length === 0 && (
-                        <li>There are not tasks found</li>
-                    )}
-                </ul>
+                <div className="tasks-list__content position-relative pt-1">
+                    {loading && <Spin className="loading--overlay" />}
+                    <ul>
+                        {query?.map((task) => (
+                            <li><TaskItem {...task} /></li>
+                        ))}
+                        {/* FIXME: yet (!query && !loading)  */}
+                        {query?.length === 0 && (
+                            <li>There are not tasks found</li>
+                        )}
+                    </ul>
+                </div>
             </div>
         </div>
     )

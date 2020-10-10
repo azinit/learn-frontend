@@ -1,3 +1,6 @@
+// FIXME: specify imported modules (need only some utils-classes)
+@import '~bootstrap/dist/css/bootstrap.css';
+
 // vars
 .app {
   --clr-foreground: #fff;
@@ -11,9 +14,13 @@ body,
 .app {
   height: 100%;
   position: relative;
+  background-color: #f0f2f5;
 }
 
 .app {
+  ul {
+    padding-left: unset;
+  }
   li {
     list-style: none;
   }
@@ -23,7 +30,7 @@ body,
   display: flex;
   flex-direction: column;
   &-content {
-    margin: auto 10%;
+    margin: 10px 10%;
     flex-grow: 1;
   }
 
@@ -33,11 +40,21 @@ body,
 }
 
 // common class-styles
+// NOTE: Используем подход стилизации по классам, т.к. приложение представляет собой прототип
 .app {
   .text-white {
     color: white;
   }
   .text-muted {
     color: gray;
+  }
+  .loading--overlay {
+    padding-top: 10px;
+    width: 100%;
+    height: 100%;
+    min-height: 72px;
+    position: absolute;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.8);
   }
 }
