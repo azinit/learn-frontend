@@ -1,11 +1,16 @@
+# FIXME: don't work globlally
 overwrite: true
 schema: https://graphqlzero.almansi.me/api
 documents: src/**/*.gql
 generates:
-  src/gen/graphql.tsx:
+  src/types.ts:
+    - typescript
+  src/:
+    preset: near-operation-file
+    presetConfig:
+      extension: .gen.ts
+      baseTypesPath: types.ts
     config:
-      # FIXME: SPECIFY (noNamespaces: false)
-      # TODO: avoidTypeName
       skipTypename: true
       withHooks: true
       immutableTypes: true
@@ -14,6 +19,5 @@ generates:
       preResolveTypes: true
       # onlyOperationTypes: true
     plugins:
-      - typescript
       - typescript-operations
       - typescript-react-apollo

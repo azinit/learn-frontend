@@ -2,7 +2,9 @@ import React, { useEffect } from 'react'
 import { Spin, Alert } from "antd";
 import { useFetch } from "shared/hooks";
 import { TaskItem } from "shared/components";
-import { useGetTodosListQuery } from "gen/graphql";
+import { useGetTodosListQuery } from "./query.gen";
+
+type Foo = import("types").Album;
 
 const TasksList = () => {
     const { data, error, loading } = useFetch<Task[]>("todos");
