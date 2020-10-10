@@ -4,10 +4,15 @@ documents: 'src/**/*.gql'
 generates:
   src/gen/graphql.tsx:
     config:
-      noNamespaces: true
-      withComponent: false
-      withHOC: false
+      # FIXME: SPECIFY (noNamespaces: false)
+      # TODO: avoidTypeName
+      skipTypename: true
       withHooks: true
+      immutableTypes: true
+      avoidOptionals: true
+      # Чтобы работал intelissense
+      preResolveTypes: true
+      # onlyOperationTypes: true
     plugins:
       - 'typescript'
       - 'typescript-operations'

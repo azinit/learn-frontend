@@ -15,6 +15,8 @@ const TasksList = () => {
                 title: todo?.title,
                 user: todo?.user?.name,
             })));
+            const todo = query.todos?.data?.[0];
+            console.log(todo);
         }
     }, [query]);
 
