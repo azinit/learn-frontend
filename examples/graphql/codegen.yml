@@ -2,6 +2,7 @@
 # @remark Конфигурацию объявляем глобально, т.к. плагины должны использоваться одинаково для нескольких файлов
 # FIXME: Добавить возможность сплитить модели внутри себя?
 # FIXME: remove (| null) ?
+# FIXME: убрать опциональность полей (config#avoidOptionals)
 schema: ${API_DOMAIN}
 documents: src/**/*.gql
 config:
@@ -13,8 +14,6 @@ config:
   skipTypename: true
   # Все типы из схемы и запросов - иммутабельны
   immutableTypes: true
-  # @experimental Опциональность полей - пока что отключена
-  avoidOptionals: true
   # Типы генерируются на лету, без Pick - для чистоты информации по типу
   preResolveTypes: true
 generates:
