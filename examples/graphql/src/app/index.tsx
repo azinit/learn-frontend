@@ -1,6 +1,7 @@
 import React from 'react';
 import { Layout } from "antd";
 import Routing from "pages";
+import withApollo from "./with-apollo";
 import './index.scss';
 
 const App = () => {
@@ -20,4 +21,4 @@ const App = () => {
   );
 }
 
-export default App;
+export default withApollo(App);

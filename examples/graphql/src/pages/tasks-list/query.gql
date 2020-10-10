@@ -1,0 +1,11 @@
+query getTodosList {
+  todos {
+    data {
+      id
+      title
+      user {
+        name
+      }
+    }
+  }
+}

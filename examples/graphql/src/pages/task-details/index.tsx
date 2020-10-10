@@ -11,7 +11,7 @@ type Props = RouteComponentProps<{
 const TaskDetails = (props: Props) => {
     const { id } = props.match.params;
     const { data, loading, error } = useFetch<Task>(`todos/${id}`);
-    console.log({ error });
+
     if (loading) return <Spin />;
     if (error) return <Alert message={error.message || String(error)} type="error" showIcon />;
     if (data === null) return <>Not Found</>;

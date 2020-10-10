@@ -10,7 +10,6 @@ const useFetch = <T = any>(url: string, baseUrl = API_DOMAIN) => {
         setLoading(true);
         fetch(`${baseUrl}/${url}`)
             .then((r) => {
-                console.log(r.status);
                 if (r.status >= 200 && r.status < 300) return r.json();
                 throw new Error("Not Found");
             })
